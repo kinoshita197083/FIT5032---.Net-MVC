@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FIT5032_W3.Models.Exercise;
+using FIT5032_W3.Models.HelloWorld;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -15,7 +17,13 @@ namespace FIT5032_W3.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            //ViewBag.Message = "Your application description page.";
+            Hello hello = new Hello();
+
+            ViewBag.Message = hello.GetHello();
+
+            ExampleDictionary ed = new ExampleDictionary();
+            ed.Example();
 
             return View();
         }
