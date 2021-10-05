@@ -58,11 +58,11 @@ namespace Assignment_3rd_run
             //   appId: "",
             //   appSecret: "");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "669153263650-n6l3bu1js2eh8tgs5mmvfckm904h6da2.apps.googleusercontent.com",
+                ClientSecret = "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"
+            });
         }
     }
 }

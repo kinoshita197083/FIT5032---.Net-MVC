@@ -1,0 +1,18 @@
+namespace Assignment_3rd_run.Migrations
+{
+    using System;
+    using System.Data.Entity.Migrations;
+    
+    public partial class UserClassAdded : DbMigration
+    {
+        public override void Up()
+        {
+            AlterColumn("dbo.Users", "Name", c => c.String(maxLength: 10));
+        }
+        
+        public override void Down()
+        {
+            AlterColumn("dbo.Users", "Name", c => c.String());
+        }
+    }
+}

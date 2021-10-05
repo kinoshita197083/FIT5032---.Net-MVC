@@ -12,5 +12,6 @@ namespace Assignment_3rd_run.Models
         public string Column_header { get; set; }
         public string Column_content { get; set; }
         public string Column_type { get; set; }
+        public string Image { get; set; }
     }
 }

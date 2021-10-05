@@ -33,5 +33,7 @@ namespace Assignment_3rd_run.Models
         public DbSet<User> UserSet { get; set; }
         public DbSet<Column> ColumnSet { get; set; }
         public DbSet<News> NewsSet { get; set; }
+
+        public System.Data.Entity.DbSet<Assignment_3rd_run.Models.Membership> Memberships { get; set; }
     }
 }

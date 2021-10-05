@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Assignment_3rd_run.Models.Membership>
+
+@{
+    ViewBag.Title = "Membership";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Join Us From $7</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Length)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Length)
+        </td>
+        <td>
+            $@Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
+
+
+<a href="/Users/Create" class="btn btn-primary btn-lg">Subscribe &raquo;</a>

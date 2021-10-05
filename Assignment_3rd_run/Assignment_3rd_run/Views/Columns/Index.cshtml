@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Assignment_3rd_run.Models.Column>
+
+@{
+    ViewBag.Title = "Opinions";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Opinions</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+
+@foreach (var item in Model)
+{
+<div class="media">
+    <div class="media-left media-top">
+        <img :src="item.Image" class="media-object" style="width:150px">
+    </div>
+    <div class="media-body">
+        <h4 class="media-heading">@Html.DisplayFor(model => item.Column_header)</h4>
+        <p>@Html.DisplayFor(model => item.Column_content)</p>
+    </div>
+    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+</div>
+}
+

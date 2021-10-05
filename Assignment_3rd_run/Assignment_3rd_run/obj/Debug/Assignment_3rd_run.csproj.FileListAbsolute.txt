@@ -108,3 +108,7 @@ C:\Users\Administrator\Documents\GitHub\FIT5032\Assignment_3rd_run\Assignment_3r
 C:\Users\Administrator\Documents\GitHub\FIT5032\Assignment_3rd_run\Assignment_3rd_run\obj\Debug\Assignment_3rd_run.pdb
 C:\Users\Administrator\Documents\GitHub\FIT5032\Assignment_3rd_run\Assignment_3rd_run\obj\Debug\Assignment_3rd_run.Migrations.IntialSetUp.resources
 C:\Users\Administrator\Documents\GitHub\FIT5032\Assignment_3rd_run\Assignment_3rd_run\obj\Debug\Assignment_3rd_run.csproj.GenerateResource.cache
+C:\Users\Administrator\Documents\GitHub\FIT5032\Assignment_3rd_run\Assignment_3rd_run\obj\Debug\Assignment_3rd_run.Migrations.ImportDummyData1.resources
+C:\Users\Administrator\Documents\GitHub\FIT5032\Assignment_3rd_run\Assignment_3rd_run\obj\Debug\Assignment_3rd_run.Migrations.newAttributeForColumn.resources
+C:\Users\Administrator\Documents\GitHub\FIT5032\Assignment_3rd_run\Assignment_3rd_run\obj\Debug\Assignment_3rd_run.Migrations.ImportDummyImageDataSeed.resources
+C:\Users\Administrator\Documents\GitHub\FIT5032\Assignment_3rd_run\Assignment_3rd_run\obj\Debug\Assignment_3rd_run.Migrations.UserClassAdded.resources
