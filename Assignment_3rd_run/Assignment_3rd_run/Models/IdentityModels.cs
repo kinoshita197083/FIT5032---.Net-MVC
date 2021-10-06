@@ -35,5 +35,7 @@ namespace Assignment_3rd_run.Models
         public DbSet<News> NewsSet { get; set; }
 
         public System.Data.Entity.DbSet<Assignment_3rd_run.Models.Membership> Memberships { get; set; }
+
+        public System.Data.Entity.DbSet<Assignment_3rd_run.Models.Subscribed> Subscribeds { get; set; }
     }
 }

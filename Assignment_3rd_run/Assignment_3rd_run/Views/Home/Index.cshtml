@@ -1,10 +1,11 @@
-﻿@{
+﻿@model IEnumerable<Assignment_3rd_run.Models.News>
+@{
     ViewBag.Title = "Home Page";
 }
 
 <div class="row">
     <div class="col-lg-4 col-sm-8 col-md-6">
-        <img src="~/Images/night.jpg"
+        <img src="~/Content/Images/night.jpg"
              width="1140"
              height="200" />
     </div>
@@ -20,31 +21,35 @@
 
 
 
-
+@*@foreach (var item in Model)
+{*@
 <div class="row">
     <div class="col-lg-8 col-sm-8 col-md-6">
-        <div class="card" style="width: 30rem;">
-            <img src="~/Images/Hi.jpg"
+        <div class="card" style="width: 45rem;">
+            <img src="~/Content/Images/biden.jpg"
                  width="750"
-                 height="450"
+                 height="400"
                  class="rounded"/>
             
             <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">More</a>
+                <h5 class="card-title">Biden makes bizarre gaffe while introducing Gretchen Whitmer</h5>
+                @*<p class="card-text">The president visited the International Union of Operating Engineers Local 324 training facility in Howell on Tuesday in an attempt to gain support for a $1.2 trillion bipartisan infrastructure bill and his larger Build Back Better agenda, which includes a proposed $3.5 trillion reconciliation package. After praising Whitmer for being "one of the best governors in the United States of America," he added a strange comment about Lt. Gov. Garlin Gilchrist.</p>*@
+                <a href="~/News/Details/4" class="btn btn-primary">More</a>
             </div>
         </div>
     </div>
     <div class="col-lg-4 col-sm-8 col-md-6">
         <div class="card" style="width: 25rem;">
-            <img src="~/Images/market.jpg"
-                 width="330"
-                 height="200" />
+            <img src="~/Content/Images/trump1.jfif"
+                 width="350"
+                 height="240" />
             <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">More</a>
+                <h5 class="card-title">Supporters of Georgia's Kemp counterattack after Trump rally</h5>
+                @*<p class="card-text">
+                    Trump Georgia Governor
+                    FILE - In this Sept. 25, 2021, file photo, former President Donald Trump prepares to take the stage during his Save America rally in Perry, Ga. Supporters of Republican Georgia Gov. Brian Kemp are fighting back against Donald Trump and their own party leaders. They are angered by Trump’s Sept. 25 rally in Georgia where the former president again attacked Kemp. (AP Photo/Ben Gray, File)
+                </p>*@
+                <a href="~/News/Details/5" class="btn btn-primary">More</a>
             </div>
         </div>
     </div>
@@ -55,48 +60,53 @@
 <div class="row">
     <div class="col-lg-4 col-sm-8 col-md-6">
         <div class="card" style="width: 25rem;">
-            <img src="~/Images/rainbow.jpg"
+            <img src="~/Content/Images/mark1.jfif"
                  width="300"
                  height="200" />
             <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">More</a>
+                <h5 class="card-title">Facebook whistleblower says Mark Zuckerberg 'never set out to make a hateful platform' but that he allows choices that give hateful content more reach</h5>
+                @*<p class="card-text">
+                    A former Facebook employee who has leaked internal documents to the press revealed herself on Sunday and shared more critiques about the social media giant and its chief executive.
+
+                    In an interview with "60 Minutes," Frances Haugen described the harm she believes is perpetuated by Facebook, including not properly addressing hate on the platform, contributing to eating disorders and suicidal thoughts, and making decisions in its own best interest rather than that of the public.
+                </p>*@
+                <a href="~/News/Details/6" class="btn btn-primary">More</a>
             </div>
         </div>
     </div>
     <div class="col-lg-4 col-sm-8 col-md-6">
         <div class="card" style="width: 25rem;">
-            <img src="~/Images/UO.jfif"
+            <img src="~/Content/Images/Yang.jfif"
                  width="300"
                  height="200" />
             <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">More</a>
+                <h5 class="card-title">'Tesla of homes': Can a construction tech company solve the housing shortage by building homes faster?</h5>
+                @*<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>*@
+                <a href="~/News/Details/7" class="btn btn-primary">More</a>
             </div>
         </div>
     </div>
     <div class="col-lg-4 col-sm-8 col-md-6">
         <div class="card" style="width: 25rem;">
-            <img src="~/Images/Hello.jpg"
+            <img src="~/Content/Images/russia1.jfif"
                  width="300"
                  height="200" />
             <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">More</a>
+                <h5 class="card-title">Russia says Facebook outage shows why it needs internet sovereignty</h5>
+                @*<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>*@
+                <a href="~/News/Details/8" class="btn btn-primary">More</a>
             </div>
         </div>
     </div>
 
 </div>
+@*}*@
 
 <div><p>&nbsp;</p></div>
 
 <div class="row">
     <div class="col-lg-4 col-sm-8 col-md-6">
-        <img src="~/Images/night.jpg"
+        <img src="~/Content/Images/night.jpg"
              width="1100"
              height="300" />
     </div>

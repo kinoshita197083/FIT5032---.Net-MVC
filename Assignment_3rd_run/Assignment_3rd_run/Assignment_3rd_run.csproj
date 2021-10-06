@@ -175,6 +175,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MembershipsController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
+    <Compile Include="Controllers\SubscribedsController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -198,6 +199,10 @@
     <Compile Include="Migrations\202110051338380_UserClassAdded.cs" />
     <Compile Include="Migrations\202110051338380_UserClassAdded.Designer.cs">
       <DependentUpon>202110051338380_UserClassAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110060139214_ModifiedMembership.cs" />
+    <Compile Include="Migrations\202110060139214_ModifiedMembership.Designer.cs">
+      <DependentUpon>202110060139214_ModifiedMembership.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -226,19 +231,24 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\biden.jpg" />
+    <Content Include="Content\Images\mark1.jfif" />
+    <Content Include="Content\Images\russia1.jfif" />
+    <Content Include="Content\Images\trump1.jfif" />
+    <Content Include="Content\Images\Yang.jfif" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Images\COV.jpeg" />
-    <Content Include="Images\Hello.jpg" />
-    <Content Include="Images\Hi.jpg" />
-    <Content Include="Images\Leung.jpg" />
-    <Content Include="Images\market.jpg" />
-    <Content Include="Images\night.jpg" />
-    <Content Include="Images\rainbow.jpg" />
-    <Content Include="Images\UO.jfif" />
-    <Content Include="Images\US.jfif" />
+    <Content Include="Content\Images\COV.jpeg" />
+    <Content Include="Content\Images\Hello.jpg" />
+    <Content Include="Content\Images\Hi.jpg" />
+    <Content Include="Content\Images\Leung.jpg" />
+    <Content Include="Content\Images\market.jpg" />
+    <Content Include="Content\Images\night.jpg" />
+    <Content Include="Content\Images\rainbow.jpg" />
+    <Content Include="Content\Images\UO.jfif" />
+    <Content Include="Content\Images\US.jfif" />
     <Content Include="Scripts\bootstrap-datepicker.js" />
     <Content Include="Scripts\bootstrap-datepicker.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -427,6 +437,12 @@
     <Content Include="Views\Users\Details.cshtml" />
     <Content Include="Views\Users\Edit.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
+    <Content Include="Views\Subscribeds\Create.cshtml" />
+    <Content Include="Views\Subscribeds\Delete.cshtml" />
+    <Content Include="Views\Subscribeds\Details.cshtml" />
+    <Content Include="Views\Subscribeds\Edit.cshtml" />
+    <Content Include="Views\Subscribeds\Index.cshtml" />
+    <Content Include="Views\News\_SearchForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -452,6 +468,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202110051338380_UserClassAdded.resx">
       <DependentUpon>202110051338380_UserClassAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110060139214_ModifiedMembership.resx">
+      <DependentUpon>202110060139214_ModifiedMembership.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

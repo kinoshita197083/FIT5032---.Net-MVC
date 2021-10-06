@@ -13,5 +13,8 @@ namespace Assignment_3rd_run.Models
 
         public int Price { get; set; }
 
+        public Subscribed Subscriptions { get; set; }
+
+        public int User_Id { get; set; }
     }
 }

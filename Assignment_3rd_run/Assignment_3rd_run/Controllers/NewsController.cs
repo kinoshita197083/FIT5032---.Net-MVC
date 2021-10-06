@@ -115,6 +115,17 @@ namespace Assignment_3rd_run.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult SearchForm ()
+        {
+            return View();
+        }
+
+        public ActionResult SearchForPhrase(string phrase)
+        {
+            var temp = from i in db.NewsSet where i.Content.Contains(phrase) select i;
+            return View("Index", temp);
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
