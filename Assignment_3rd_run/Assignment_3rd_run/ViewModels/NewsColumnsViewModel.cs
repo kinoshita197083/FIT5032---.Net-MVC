@@ -21,5 +21,9 @@ namespace Assignment_3rd_run.ViewModels
             VM_Column = vM_Column;
             System_Id = sysId;
         }
+
+        public NewsColumnsViewModel()
+        {
+        }
     }
 }

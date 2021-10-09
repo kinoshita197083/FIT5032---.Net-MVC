@@ -493,6 +493,7 @@
     <Content Include="Views\MembershipTypes\Details.cshtml" />
     <Content Include="Views\MembershipTypes\Edit.cshtml" />
     <Content Include="Views\MembershipTypes\Index.cshtml" />
+    <Content Include="Views\NewsColumnsViewModels\_ChooseTag.cshtml" />
     <Content Include="Views\NewsColumnsViewModels\ChooseTag.cshtml" />
   </ItemGroup>
   <ItemGroup>

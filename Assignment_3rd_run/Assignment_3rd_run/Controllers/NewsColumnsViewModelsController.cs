@@ -65,7 +65,7 @@ namespace Assignment_3rd_run.Controllers
         public ActionResult ChooseTag()
         {
             ViewBag.Id = new SelectList(db.TagSet, "Id", "Type");
-            return View("ChooseTagForm");
+            return View("ChooseTag");
         }
 
         //public ActionResult AddTag(List<string> news)
@@ -94,20 +94,28 @@ namespace Assignment_3rd_run.Controllers
         {
             var userId = User.Identity.GetUserId();
             var sub = db.NewsColumnsViewModels.SingleOrDefault(m => m.System_Id == userId);
-            foreach (var item in db.NewsSet)
+            if (sub != null)
             {
-                if (item.Type == tag.ToString())
+                foreach (var item in db.NewsSet)
                 {
-                    sub.VM_News.Add(item);
-                }     
-            }
-
-            foreach (var item in db.ColumnSet)
-            {
-                if (item.Column_type == tag.ToString())
-                {
-                    sub.VM_Column.Add(item);
+                    if (item.Type == tag.ToString())
+                    {
+                        sub.VM_News.Add(item);
+                    }
                 }
+
+                foreach (var item in db.ColumnSet)
+                {
+                    if (item.Column_type == tag.ToString())
+                    {
+                        sub.VM_Column.Add(item);
+                    }
+                }
+            }
+            else
+            {
+                sub = new NewsColumnsViewModel();
+                sub.System_Id = userId;
             }
             db.NewsColumnsViewModels.Add(sub);
             return View("Index");
