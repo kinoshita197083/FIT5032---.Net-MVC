@@ -101,7 +101,6 @@ C:\Users\Administrator\Documents\GitHub\FIT5032\Assignment_3rd_run\Assignment_3r
 C:\Users\Administrator\Documents\GitHub\FIT5032\Assignment_3rd_run\Assignment_3rd_run\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\Administrator\Documents\GitHub\FIT5032\Assignment_3rd_run\Assignment_3rd_run\bin\Microsoft.Owin.Security.OAuth.xml
 C:\Users\Administrator\Documents\GitHub\FIT5032\Assignment_3rd_run\Assignment_3rd_run\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\Administrator\Documents\GitHub\FIT5032\Assignment_3rd_run\Assignment_3rd_run\obj\Debug\Assignment_3rd_run.csproj.AssemblyReference.cache
 C:\Users\Administrator\Documents\GitHub\FIT5032\Assignment_3rd_run\Assignment_3rd_run\obj\Debug\Assignment_3rd_run.csproj.CoreCompileInputs.cache
 C:\Users\Administrator\Documents\GitHub\FIT5032\Assignment_3rd_run\Assignment_3rd_run\obj\Debug\Assignment_3rd_run.csproj.CopyComplete
 C:\Users\Administrator\Documents\GitHub\FIT5032\Assignment_3rd_run\Assignment_3rd_run\obj\Debug\Assignment_3rd_run.dll
@@ -113,3 +112,16 @@ C:\Users\Administrator\Documents\GitHub\FIT5032\Assignment_3rd_run\Assignment_3r
 C:\Users\Administrator\Documents\GitHub\FIT5032\Assignment_3rd_run\Assignment_3rd_run\obj\Debug\Assignment_3rd_run.Migrations.ImportDummyImageDataSeed.resources
 C:\Users\Administrator\Documents\GitHub\FIT5032\Assignment_3rd_run\Assignment_3rd_run\obj\Debug\Assignment_3rd_run.Migrations.UserClassAdded.resources
 C:\Users\Administrator\Documents\GitHub\FIT5032\Assignment_3rd_run\Assignment_3rd_run\obj\Debug\Assignment_3rd_run.Migrations.ModifiedMembership.resources
+C:\Users\Administrator\Documents\GitHub\FIT5032\Assignment_3rd_run\Assignment_3rd_run\obj\Debug\Assignment_3rd_run.Migrations.DeletedMultipleRedunduncyClasses.resources
+C:\Users\Administrator\Documents\GitHub\FIT5032\Assignment_3rd_run\Assignment_3rd_run\obj\Debug\Assignment_3rd_run.Migrations.ViewModel.resources
+C:\Users\Administrator\Documents\GitHub\FIT5032\Assignment_3rd_run\Assignment_3rd_run\obj\Debug\Assignment_3rd_run.Migrations.Uncommented.resources
+C:\Users\Administrator\Documents\GitHub\FIT5032\Assignment_3rd_run\Assignment_3rd_run\obj\Debug\Assignment_3rd_run.Migrations.regularUpdate.resources
+C:\Users\Administrator\Documents\GitHub\FIT5032\Assignment_3rd_run\Assignment_3rd_run\obj\Debug\Assignment_3rd_run.csproj.AssemblyReference.cache
+C:\Users\Administrator\Documents\GitHub\FIT5032\Assignment_3rd_run\Assignment_3rd_run\obj\Debug\Assignment_3rd_run.Migrations.AddMembershipType.resources
+C:\Users\Administrator\Documents\GitHub\FIT5032\Assignment_3rd_run\Assignment_3rd_run\obj\Debug\Assignment_3rd_run.Migrations.dbSetUpdated.resources
+C:\Users\Administrator\Documents\GitHub\FIT5032\Assignment_3rd_run\Assignment_3rd_run\obj\Debug\Assignment_3rd_run.Migrations.modifiedMembershipClass.resources
+C:\Users\Administrator\Documents\GitHub\FIT5032\Assignment_3rd_run\Assignment_3rd_run\obj\Debug\Assignment_3rd_run.Migrations.dropcolumn.resources
+C:\Users\Administrator\Documents\GitHub\FIT5032\Assignment_3rd_run\Assignment_3rd_run\obj\Debug\Assignment_3rd_run.Migrations.modifiedNewColumnsVMClass.resources
+C:\Users\Administrator\Documents\GitHub\FIT5032\Assignment_3rd_run\Assignment_3rd_run\obj\Debug\Assignment_3rd_run.Migrations.TagClassAdded.resources
+C:\Users\Administrator\Documents\GitHub\FIT5032\Assignment_3rd_run\Assignment_3rd_run\obj\Debug\Assignment_3rd_run.Migrations.importDataTag.resources
+C:\Users\Administrator\Documents\GitHub\FIT5032\Assignment_3rd_run\Assignment_3rd_run\obj\Debug\Assignment_3rd_run.Migrations.modifiedMembershipCS.resources

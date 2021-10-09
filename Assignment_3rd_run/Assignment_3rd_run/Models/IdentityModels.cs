@@ -30,12 +30,16 @@ namespace Assignment_3rd_run.Models
             return new ApplicationDbContext();
         }
 
-        public DbSet<User> UserSet { get; set; }
         public DbSet<Column> ColumnSet { get; set; }
         public DbSet<News> NewsSet { get; set; }
 
+        public System.Data.Entity.DbSet<Assignment_3rd_run.Models.MembershipType> MembershipTypesSet { get; set; }
+
+
         public System.Data.Entity.DbSet<Assignment_3rd_run.Models.Membership> Memberships { get; set; }
 
-        public System.Data.Entity.DbSet<Assignment_3rd_run.Models.Subscribed> Subscribeds { get; set; }
+        public System.Data.Entity.DbSet<Assignment_3rd_run.ViewModels.NewsColumnsViewModel> NewsColumnsViewModels { get; set; }
+
+        public System.Data.Entity.DbSet<Assignment_3rd_run.Models.Tag> TagSet { get; set; }
     }
 }

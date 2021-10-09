@@ -6,7 +6,9 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Windows.Documents;
 using Assignment_3rd_run.Models;
+using Microsoft.AspNet.Identity;
 
 namespace Assignment_3rd_run.Controllers
 {
@@ -17,8 +19,11 @@ namespace Assignment_3rd_run.Controllers
         // GET: Memberships
         public ActionResult Index()
         {
-            return View(db.Memberships.ToList());
+            var userId = User.Identity.GetUserId();
+            var membership = db.Memberships.SingleOrDefault(m => m.System_Id == userId);
+            return View(membership);
         }
+
 
         // GET: Memberships/Details/5
         public ActionResult Details(int? id)
@@ -38,6 +43,7 @@ namespace Assignment_3rd_run.Controllers
         // GET: Memberships/Create
         public ActionResult Create()
         {
+            ViewBag.MembershipType_Id = new SelectList(db.MembershipTypesSet, "Id", "Membership_type");
             return View();
         }
 
@@ -46,15 +52,19 @@ namespace Assignment_3rd_run.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Length,Price")] Membership membership)
+        public ActionResult Create([Bind(Include = "Id,Name,System_Id,Birthday,MembershipType_Id")] Membership membership)
         {
+            membership.System_Id = User.Identity.GetUserId();
+            //ModelState.Clear();
+            TryValidateModel(membership);
+            ViewBag.MembershipType_Id = new SelectList(db.MembershipTypesSet, "Id", "Membership_type", membership.MembershipType_Id);
             if (ModelState.IsValid)
             {
                 db.Memberships.Add(membership);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
+ 
             return View(membership);
         }
 
@@ -70,6 +80,7 @@ namespace Assignment_3rd_run.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.MembershipType_Id = new SelectList(db.MembershipTypesSet, "Id", "Membership_type", membership.MembershipType_Id);
             return View(membership);
         }
 
@@ -78,7 +89,7 @@ namespace Assignment_3rd_run.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Length,Price")] Membership membership)
+        public ActionResult Edit([Bind(Include = "Id,Name,System_Id,Birthday,MembershipType_Id")] Membership membership)
         {
             if (ModelState.IsValid)
             {
@@ -86,6 +97,7 @@ namespace Assignment_3rd_run.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.MembershipType_Id = new SelectList(db.MembershipTypesSet, "Id", "Membership_type", membership.MembershipType_Id);
             return View(membership);
         }
 

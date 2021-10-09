@@ -54,6 +54,7 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -174,9 +175,9 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MembershipsController.cs" />
+    <Compile Include="Controllers\MembershipTypesController.cs" />
+    <Compile Include="Controllers\NewsColumnsViewModelsController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
-    <Compile Include="Controllers\SubscribedsController.cs" />
-    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -204,17 +205,66 @@
     <Compile Include="Migrations\202110060139214_ModifiedMembership.Designer.cs">
       <DependentUpon>202110060139214_ModifiedMembership.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202110090354545_DeletedMultipleRedunduncyClasses.cs" />
+    <Compile Include="Migrations\202110090354545_DeletedMultipleRedunduncyClasses.Designer.cs">
+      <DependentUpon>202110090354545_DeletedMultipleRedunduncyClasses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110090620588_ViewModel.cs" />
+    <Compile Include="Migrations\202110090620588_ViewModel.Designer.cs">
+      <DependentUpon>202110090620588_ViewModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110090623037_Uncommented.cs" />
+    <Compile Include="Migrations\202110090623037_Uncommented.Designer.cs">
+      <DependentUpon>202110090623037_Uncommented.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110090632455_regularUpdate.cs" />
+    <Compile Include="Migrations\202110090632455_regularUpdate.Designer.cs">
+      <DependentUpon>202110090632455_regularUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110090725083_AddMembershipType.cs" />
+    <Compile Include="Migrations\202110090725083_AddMembershipType.Designer.cs">
+      <DependentUpon>202110090725083_AddMembershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110090737459_dbSetUpdated.cs" />
+    <Compile Include="Migrations\202110090737459_dbSetUpdated.Designer.cs">
+      <DependentUpon>202110090737459_dbSetUpdated.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110091233595_modifiedMembershipClass.cs" />
+    <Compile Include="Migrations\202110091233595_modifiedMembershipClass.Designer.cs">
+      <DependentUpon>202110091233595_modifiedMembershipClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110091241247_dropcolumn.cs" />
+    <Compile Include="Migrations\202110091241247_dropcolumn.Designer.cs">
+      <DependentUpon>202110091241247_dropcolumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110091253369_modifiedNewColumnsVMClass.cs" />
+    <Compile Include="Migrations\202110091253369_modifiedNewColumnsVMClass.Designer.cs">
+      <DependentUpon>202110091253369_modifiedNewColumnsVMClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110091323336_TagClassAdded.cs" />
+    <Compile Include="Migrations\202110091323336_TagClassAdded.Designer.cs">
+      <DependentUpon>202110091323336_TagClassAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110091329331_importDataTag.cs" />
+    <Compile Include="Migrations\202110091329331_importDataTag.Designer.cs">
+      <DependentUpon>202110091329331_importDataTag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110091418034_modifiedMembershipCS.cs" />
+    <Compile Include="Migrations\202110091418034_modifiedMembershipCS.Designer.cs">
+      <DependentUpon>202110091418034_modifiedMembershipCS.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Column.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Membership.cs" />
+    <Compile Include="Models\MembershipType.cs" />
     <Compile Include="Models\News.cs" />
-    <Compile Include="Models\Subscribed.cs" />
-    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\Tag.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\NewsColumnsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-darklyV4.2.css" />
@@ -418,11 +468,6 @@
     <Content Include="Views\News\Details.cshtml" />
     <Content Include="Views\News\Edit.cshtml" />
     <Content Include="Views\News\Index.cshtml" />
-    <Content Include="Views\Memberships\Create.cshtml" />
-    <Content Include="Views\Memberships\Delete.cshtml" />
-    <Content Include="Views\Memberships\Details.cshtml" />
-    <Content Include="Views\Memberships\Edit.cshtml" />
-    <Content Include="Views\Memberships\Index.cshtml" />
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
     <Content Include="Scripts\umd\popper-utils.min.js.map" />
@@ -432,21 +477,26 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
-    <Content Include="Views\Users\Create.cshtml" />
-    <Content Include="Views\Users\Delete.cshtml" />
-    <Content Include="Views\Users\Details.cshtml" />
-    <Content Include="Views\Users\Edit.cshtml" />
-    <Content Include="Views\Users\Index.cshtml" />
-    <Content Include="Views\Subscribeds\Create.cshtml" />
-    <Content Include="Views\Subscribeds\Delete.cshtml" />
-    <Content Include="Views\Subscribeds\Details.cshtml" />
-    <Content Include="Views\Subscribeds\Edit.cshtml" />
-    <Content Include="Views\Subscribeds\Index.cshtml" />
     <Content Include="Views\News\_SearchForm.cshtml" />
+    <Content Include="Views\Memberships\Create.cshtml" />
+    <Content Include="Views\Memberships\Delete.cshtml" />
+    <Content Include="Views\Memberships\Details.cshtml" />
+    <Content Include="Views\Memberships\Edit.cshtml" />
+    <Content Include="Views\Memberships\Index.cshtml" />
+    <Content Include="Views\NewsColumnsViewModels\Create.cshtml" />
+    <Content Include="Views\NewsColumnsViewModels\Delete.cshtml" />
+    <Content Include="Views\NewsColumnsViewModels\Details.cshtml" />
+    <Content Include="Views\NewsColumnsViewModels\Edit.cshtml" />
+    <Content Include="Views\NewsColumnsViewModels\Index.cshtml" />
+    <Content Include="Views\MembershipTypes\Create.cshtml" />
+    <Content Include="Views\MembershipTypes\Delete.cshtml" />
+    <Content Include="Views\MembershipTypes\Details.cshtml" />
+    <Content Include="Views\MembershipTypes\Edit.cshtml" />
+    <Content Include="Views\MembershipTypes\Index.cshtml" />
+    <Content Include="Views\NewsColumnsViewModels\ChooseTag.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -471,6 +521,42 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202110060139214_ModifiedMembership.resx">
       <DependentUpon>202110060139214_ModifiedMembership.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110090354545_DeletedMultipleRedunduncyClasses.resx">
+      <DependentUpon>202110090354545_DeletedMultipleRedunduncyClasses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110090620588_ViewModel.resx">
+      <DependentUpon>202110090620588_ViewModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110090623037_Uncommented.resx">
+      <DependentUpon>202110090623037_Uncommented.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110090632455_regularUpdate.resx">
+      <DependentUpon>202110090632455_regularUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110090725083_AddMembershipType.resx">
+      <DependentUpon>202110090725083_AddMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110090737459_dbSetUpdated.resx">
+      <DependentUpon>202110090737459_dbSetUpdated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110091233595_modifiedMembershipClass.resx">
+      <DependentUpon>202110091233595_modifiedMembershipClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110091241247_dropcolumn.resx">
+      <DependentUpon>202110091241247_dropcolumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110091253369_modifiedNewColumnsVMClass.resx">
+      <DependentUpon>202110091253369_modifiedNewColumnsVMClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110091323336_TagClassAdded.resx">
+      <DependentUpon>202110091323336_TagClassAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110091329331_importDataTag.resx">
+      <DependentUpon>202110091329331_importDataTag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110091418034_modifiedMembershipCS.resx">
+      <DependentUpon>202110091418034_modifiedMembershipCS.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

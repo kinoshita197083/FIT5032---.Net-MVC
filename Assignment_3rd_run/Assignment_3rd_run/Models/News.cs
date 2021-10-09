@@ -17,5 +17,17 @@ namespace Assignment_3rd_run.Models
 
         public string Image { get; set; }
 
+        public News(int id, string headline, string content, string type, string image)
+        {
+            Id = id;
+            Headline = headline;
+            Content = content;
+            Type = type;
+            Image = image;
+        }
+
+        public News()
+        {
+        }
     }
 }
