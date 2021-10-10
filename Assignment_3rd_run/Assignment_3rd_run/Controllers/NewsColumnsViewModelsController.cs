@@ -17,50 +17,50 @@ namespace Assignment_3rd_run.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: NewsColumnsViewModels
-        public ActionResult Index()
-        {
-            var userId = User.Identity.GetUserId();
-            var membership = db.Memberships.SingleOrDefault(m => m.System_Id == userId);
-            var subNews = membership.Sub_news;
-            var subColumns = membership.Sub_columns;
-            List<News> News = new List<News>();
-            List<Column> Columns = new List<Column>();
-            if (subNews != null)
-            {
+        //public ActionResult Index()
+        //{
+        //    var userId = User.Identity.GetUserId();
+        //    var membership = db.Memberships.SingleOrDefault(m => m.System_Id == userId);
+        //    var subNews = membership.Sub_news;
+        //    var subColumns = membership.Sub_columns;
+        //    List<News> News = new List<News>();
+        //    List<Column> Columns = new List<Column>();
+        //    if (subNews != null)
+        //    {
 
-                foreach (var item in subNews)
-                {
-                    foreach (var item2 in db.NewsSet)
-                    {
-                        if (item2.Type == item.Type)
-                        {
-                            News.Add(item2);
-                        }
+        //        foreach (var item in subNews)
+        //        {
+        //            foreach (var item2 in db.NewsSet)
+        //            {
+        //                if (item2.Type == item.Type)
+        //                {
+        //                    News.Add(item2);
+        //                }
 
-                    }
-                }
-                foreach (var item in subColumns)
-                {
-                    foreach (var item2 in db.ColumnSet)
-                    {
-                        if (item2.Column_type == item.Column_type)
-                        {
-                            Columns.Add(item2);
-                        }
+        //            }
+        //        }
+        //        foreach (var item in subColumns)
+        //        {
+        //            foreach (var item2 in db.ColumnSet)
+        //            {
+        //                if (item2.Column_type == item.Column_type)
+        //                {
+        //                    Columns.Add(item2);
+        //                }
 
-                    }
-                }
-            }
-            else
-            {
-                Console.WriteLine("Empty List");
-            }
-            var returnItem = new NewsColumnsViewModel(News, Columns, userId);
-            membership.Sub_news = News;
-            membership.Sub_columns = Columns;
-            db.NewsColumnsViewModels.Add(returnItem);
-            return View();
-        }
+        //            }
+        //        }
+        //    }
+        //    else
+        //    {
+        //        Console.WriteLine("Empty List");
+        //    }
+        //    var returnItem = new NewsColumnsViewModel(News, Columns, userId);
+        //    membership.Sub_news = News;
+        //    membership.Sub_columns = Columns;
+        //    db.NewsColumnsViewModels.Add(returnItem);
+        //    return View();
+        //}
 
         public ActionResult ChooseTag()
         {
@@ -94,8 +94,10 @@ namespace Assignment_3rd_run.Controllers
         {
             var userId = User.Identity.GetUserId();
             var sub = db.NewsColumnsViewModels.SingleOrDefault(m => m.System_Id == userId);
-            if (sub != null)
+            if (sub is null)
             {
+                sub = new NewsColumnsViewModel(new List<News>(), new List<Column>(), userId);
+
                 foreach (var item in db.NewsSet)
                 {
                     if (item.Type == tag.ToString())
@@ -111,14 +113,10 @@ namespace Assignment_3rd_run.Controllers
                         sub.VM_Column.Add(item);
                     }
                 }
+                db.NewsColumnsViewModels.Add(sub);
             }
-            else
-            {
-                sub = new NewsColumnsViewModel();
-                sub.System_Id = userId;
-            }
-            db.NewsColumnsViewModels.Add(sub);
-            return View("Index");
+            else { Console.WriteLine("Pass"); }
+            return View("AddTag");
         }
 
         // GET: NewsColumnsViewModels/Details/5

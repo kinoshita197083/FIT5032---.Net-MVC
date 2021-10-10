@@ -1,0 +1,30 @@
+﻿@model Assignment_3rd_run.Models.MailInfo
+@{
+    ViewBag.Title = "Sned Email";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{ 
+    ViewBag.Title = "SendEmail";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+<body>
+    <form actions="Send" method="post" enctype="multipart/form-data">
+        <h2>Send Email with Attachment</h2>
+        <div> From:</div><input name="From"/>
+        <div> To:</div><input name="To"/>
+        <div> Subject:</div><input name="Subject"/>
+        <div>Attachment:</div>
+        <input name="document" type="file" value="select" />
+        <div>Notes: </div><textarea name="Body" rows="9" cols="50"></textarea>
+        <div><p>&nbsp;</p></div>
+
+        <input type="submit" value="Send" name="Send"/>
+    </form>
+</body>
+}
+
+
