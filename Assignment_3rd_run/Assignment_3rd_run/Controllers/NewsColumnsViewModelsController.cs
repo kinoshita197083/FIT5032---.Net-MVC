@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using Assignment_3rd_run.Models;
 using Assignment_3rd_run.ViewModels;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNetCore.Http;
 
 namespace Assignment_3rd_run.Controllers
 {
@@ -89,18 +90,20 @@ namespace Assignment_3rd_run.Controllers
         //    db.NewsColumnsViewModels.Add(sub);
         //    return View("Index");
         //}
-
-        public ActionResult AddTag(Tag tag)
+        [HttpPost]
+        public ActionResult AddTag([Bind(Include = "Id,Type")] Tag tag)
         {
             var userId = User.Identity.GetUserId();
             var sub = db.NewsColumnsViewModels.SingleOrDefault(m => m.System_Id == userId);
-            if (sub is null)
+            var type = ViewBag.Type = new SelectList(db.TagSet, "Id", "Type", tag.Type);
+            //var type = tag.Type;
+            if (sub is null || sub.VM_News is null)
             {
                 sub = new NewsColumnsViewModel(new List<News>(), new List<Column>(), userId);
 
                 foreach (var item in db.NewsSet)
                 {
-                    if (item.Type == tag.ToString())
+                    if (item.Type == type.ToString())
                     {
                         sub.VM_News.Add(item);
                     }
@@ -108,15 +111,16 @@ namespace Assignment_3rd_run.Controllers
 
                 foreach (var item in db.ColumnSet)
                 {
-                    if (item.Column_type == tag.ToString())
+                    if (item.Column_type == type.ToString())
                     {
                         sub.VM_Column.Add(item);
                     }
                 }
                 db.NewsColumnsViewModels.Add(sub);
+                db.SaveChanges();
             }
-            else { Console.WriteLine("Pass"); }
-            return View("AddTag");
+
+            return View("AddTag", sub);
         }
 
         // GET: NewsColumnsViewModels/Details/5

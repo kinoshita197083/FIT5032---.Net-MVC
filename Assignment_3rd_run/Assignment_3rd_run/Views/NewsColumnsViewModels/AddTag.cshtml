@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Assignment_3rd_run.ViewModels.NewsColumnsViewModel>
+﻿@model Assignment_3rd_run.ViewModels.NewsColumnsViewModel
 
 @{
     ViewBag.Title = "Home";
@@ -13,7 +13,7 @@
 
 
 
-@if (Model != null)
+@*@if (Model != null)
 {
     foreach (var item in Model)
     {
@@ -52,6 +52,91 @@
 else
 {
     <p>Error 404: No record found</p>
-}
+}*@
+
+
+<table class="table">
+    <tr>
+        <th>
+            Id
+        </th>
+        <th>
+            Headline
+        </th>
+        <th>
+            Image
+        </th>
+        <th>
+            Category
+        </th>
+    </tr>
+
+    @foreach (var item in Model.VM_News)
+    {
+
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Headline)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Image)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<table class="table">
+    <tr>
+        <th>
+            Id
+        </th>
+        <th>
+            Headline
+        </th>
+        <th>
+            Image
+        </th>
+        <th>
+            Category
+        </th>
+    </tr>
+
+    @foreach (var item in Model.VM_Column)
+    {
+
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Column_header)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Image)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Column_type)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
 
 @Html.ActionLink("Choose Tag", "ChooseTag", "NewsColumnsViewModels")

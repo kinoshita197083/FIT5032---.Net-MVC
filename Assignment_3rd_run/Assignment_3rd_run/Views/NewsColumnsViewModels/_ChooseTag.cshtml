@@ -2,7 +2,7 @@
 
 <h4>Interested in any field?</h4>
 
-@using (Html.BeginForm("AddTag", "NewsColumnsViewModels"))
+@using (Html.BeginForm("AddTag", "NewsColumnsViewModels", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
 
