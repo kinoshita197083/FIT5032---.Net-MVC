@@ -95,15 +95,15 @@ namespace Assignment_3rd_run.Controllers
         {
             var userId = User.Identity.GetUserId();
             var sub = db.NewsColumnsViewModels.SingleOrDefault(m => m.System_Id == userId);
-            var type = ViewBag.Type = new SelectList(db.TagSet, "Id", "Type", tag.Type);
+            string type = ViewBag.Type = new SelectList(db.TagSet, "Id", "Type", tag.Type).ToString();
             //var type = tag.Type;
-            if (sub is null || sub.VM_News is null)
+            if (sub is null)
             {
                 sub = new NewsColumnsViewModel(new List<News>(), new List<Column>(), userId);
 
                 foreach (var item in db.NewsSet)
                 {
-                    if (item.Type == type.ToString())
+                    if (item.Type == type) 
                     {
                         sub.VM_News.Add(item);
                     }
@@ -111,12 +111,32 @@ namespace Assignment_3rd_run.Controllers
 
                 foreach (var item in db.ColumnSet)
                 {
-                    if (item.Column_type == type.ToString())
+                    if (item.Column_type == type)
                     {
                         sub.VM_Column.Add(item);
                     }
                 }
                 db.NewsColumnsViewModels.Add(sub);
+                db.SaveChanges();
+            }
+            else 
+            {
+                foreach (var item in db.NewsSet)
+                {
+                    if (item.Type == type)
+                    {
+                        sub.VM_News.Add(item);
+                    }
+                }
+
+                foreach (var item in db.ColumnSet)
+                {
+                    if (item.Column_type == type)
+                    {
+                        sub.VM_Column.Add(item);
+                    }
+                }
+                db.Entry(sub).State = EntityState.Modified;
                 db.SaveChanges();
             }
 

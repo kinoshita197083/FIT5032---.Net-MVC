@@ -13,130 +13,114 @@
 
 
 
-@*@if (Model != null)
-{
-    foreach (var item in Model)
-    {
-        int count = 0;
-        var tempNews = item.VM_News.SingleOrDefault(m => m.Id == count);
-        var tempColumn = item.VM_Column.SingleOrDefault(m => m.Id == count);
-        <div class="media">
-            <div class="media-left media-top">
-                <img src="@tempNews.Image" class="media-object" style="width:150px">
-            </div>
-            <div class="media-body">
-                <h4 class="media-heading">@Html.DisplayFor(model => tempNews.Headline)</h4>
-                <p>@Html.DisplayFor(model => tempNews.Content)</p>
-            </div>
-            @Html.ActionLink("Edit", "Edit", new { id = tempNews.Id }) |
-            @Html.ActionLink("Details", "Details", new { id = tempNews.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id = tempNews.Id })
-        </div>
-
-        <div class="media">
-            <div class="media-left media-top">
-                <img src="@tempColumn.Image" class="media-object" style="width:150px">
-            </div>
-            <div class="media-body">
-                <h4 class="media-heading">@Html.DisplayFor(model => tempColumn.Column_header)</h4>
-                <p>@Html.DisplayFor(model => tempColumn.Column_content)</p>
-            </div>
-            @Html.ActionLink("Edit", "Edit", new { id = tempColumn.Id }) |
-            @Html.ActionLink("Details", "Details", new { id = tempColumn.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id = tempColumn.Id })
-        </div>
-
-        count += 0;
-    }
-}
-else
-{
-    <p>Error 404: No record found</p>
-}*@
-
+<h4>News</h4>
 
 <table class="table">
-    <tr>
-        <th>
-            Id
-        </th>
-        <th>
-            Headline
-        </th>
-        <th>
-            Image
-        </th>
-        <th>
-            Category
-        </th>
-    </tr>
-
-    @foreach (var item in Model.VM_News)
-    {
-
+    <thead>
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Headline)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Image)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Type)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-            </td>
+            <th>
+                Id
+            </th>
+            <th>
+                Headline
+            </th>
+            <th>
+                Image
+            </th>
+            <th>
+                Category
+            </th>
         </tr>
-    }
+    </thead>
+    <tbody>
+        @foreach (var item in Model.VM_News)
+        {
 
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Headline)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Image)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Type)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>
+
+
+<h4>Columns</h4>
 
 <table class="table">
-    <tr>
-        <th>
-            Id
-        </th>
-        <th>
-            Headline
-        </th>
-        <th>
-            Image
-        </th>
-        <th>
-            Category
-        </th>
-    </tr>
-
-    @foreach (var item in Model.VM_Column)
-    {
-
+    <thead>
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Column_header)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Image)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Column_type)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-            </td>
+            <th>
+                Id
+            </th>
+            <th>
+                Headline
+            </th>
+            <th>
+                Image
+            </th>
+            <th>
+                Category
+            </th>
         </tr>
-    }
+    </thead>
 
+    <tbody>
+        @foreach (var item in Model.VM_Column)
+        {
+
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Column_header)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Image)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Column_type)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>
+
+<div><p>&nbsp;</p></div>
 
 @Html.ActionLink("Choose Tag", "ChooseTag", "NewsColumnsViewModels")
+
+@section Scripts{
+    @Scripts.Render("~/Scripts/DataTables/jquery.dataTables.js")
+    @Scripts.Render("~/Scripts/DataTables/dataTables.bootstrap.js")
+
+    <script>
+        $(document).ready(function () {
+            $('.table').DataTable();
+            /*            $('#columns').DataTable();*/
+        });
+    </script>
+}
+<link href="~/Content/DataTables/css/dataTables.bootstrap.min.css"
+      rel="stylesheet" />

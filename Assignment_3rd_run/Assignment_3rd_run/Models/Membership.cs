@@ -11,13 +11,16 @@ namespace Assignment_3rd_run.Models
         public int Id { get; set; }
         [Display(Name = "Nick Name")]
         [StringLength(10, MinimumLength = 3)]
+        [Required]
         public string Name { get; set; }
 
         public string System_Id { get; set; }
 
         [Display(Name = "Date of Birth")]
+        [Required]
         public DateTime? Birthday { get; set; }
 
+        [Required]
         [Display(Name = "Membership Length")]
         public int MembershipType_Id { get; set; }
 
