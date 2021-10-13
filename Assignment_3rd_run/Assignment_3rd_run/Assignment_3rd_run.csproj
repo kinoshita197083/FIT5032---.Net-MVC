@@ -469,9 +469,14 @@
     <Content Include="Content\DataTables\images\sort_desc_disabled.png" />
     <Content Include="Content\DataTables\swf\flashExport.swf" />
     <Content Include="Content\Images\biden.jpg" />
+    <Content Include="Content\Images\JackMa1.jfif" />
     <Content Include="Content\Images\mark1.jfif" />
     <Content Include="Content\Images\russia1.jfif" />
+    <Content Include="Content\Images\ship1.jfif" />
+    <Content Include="Content\Images\stock1.png" />
+    <Content Include="Content\Images\TimCook1.jfif" />
     <Content Include="Content\Images\trump1.jfif" />
+    <Content Include="Content\Images\yahoo1.png" />
     <Content Include="Content\Images\Yang.jfif" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />

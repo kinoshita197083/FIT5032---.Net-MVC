@@ -7,24 +7,72 @@
 
 <h2>Opinions</h2>
 
+@if (User.IsInRole("Admin"))
+{
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-
-
-@foreach (var item in Model)
-{
-<div class="media">
-    <div class="media-left media-top">
-        <img src="@item.Image" class="media-object" style="width:150px">
-    </div>
-    <div class="media-body">
-        <h4 class="media-heading">@Html.DisplayFor(model => item.Column_header)</h4>
-        <p>@Html.DisplayFor(model => item.Column_content)</p>
-    </div>
-    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-</div>
 }
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Column_header)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Column_content)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Column_type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Image)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Column_header)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Column_content)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Column_type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Image)
+                </td>
+                @if (User.IsInRole("Admin"))
+                {
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+@section Scripts{
+    @Scripts.Render("~/Scripts/DataTables/jquery.dataTables.js")
+    @Scripts.Render("~/Scripts/DataTables/dataTables.bootstrap.js")
+
+    <script>
+        $(document).ready(function () {
+            $('.table').DataTable();
+        });
+    </script>
+}
+<link href="~/Content/DataTables/css/dataTables.bootstrap.min.css"
+      rel="stylesheet" />
 

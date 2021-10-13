@@ -123,7 +123,7 @@ namespace Assignment_3rd_run.Controllers
             {
                 foreach (var item in db.NewsSet)
                 {
-                    if (item.Type == type)
+                    if (item.Type == type && !sub.VM_News.Contains(item))
                     {
                         sub.VM_News.Add(item);
                     }
@@ -131,7 +131,7 @@ namespace Assignment_3rd_run.Controllers
 
                 foreach (var item in db.ColumnSet)
                 {
-                    if (item.Column_type == type)
+                    if (item.Column_type == type && !sub.VM_Column.Contains(item))
                     {
                         sub.VM_Column.Add(item);
                     }

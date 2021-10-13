@@ -9,9 +9,12 @@
 
 <h2>Members Database</h2>
 
+@if (User.IsInRole("Admin"))
+{
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+}
 @if (Model != null)
 {
     <table class="table">
@@ -46,12 +49,14 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.MembershipType_Id)
                 </td>
-
+                @if (User.IsInRole("Admin"))
+                {
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
                     @Html.ActionLink("Details", "Details", new { id = item.Id }) |
                     @Html.ActionLink("Delete", "Delete", new { id = item.Id })
                 </td>
+                }
             </tr>
         }
 
@@ -62,19 +67,3 @@ else
     <p>No Record is Found within the Datasbase</p>
 }
 
-
-@*@foreach (var item in Model)
-{
-    <div class="media">
-        <div class="media-left media-top">
-            <img src="@item.Image" class="media-object" style="width:150px">
-        </div>
-        <div class="media-body">
-            <h4 class="media-heading">@Html.DisplayFor(model => item.Headline)</h4>
-            <p>@Html.DisplayFor(model => item.Content)</p>
-        </div>
-        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-    </div>
-}*@

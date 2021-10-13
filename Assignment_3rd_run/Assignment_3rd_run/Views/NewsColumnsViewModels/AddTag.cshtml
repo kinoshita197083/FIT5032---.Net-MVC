@@ -7,120 +7,50 @@
 
 <h2>Home</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-
-
-
-<h4>News</h4>
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                Id
-            </th>
-            <th>
-                Headline
-            </th>
-            <th>
-                Image
-            </th>
-            <th>
-                Category
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.VM_News)
-        {
-
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Id)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Headline)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Image)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Type)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
-
-
-<h4>Columns</h4>
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                Id
-            </th>
-            <th>
-                Headline
-            </th>
-            <th>
-                Image
-            </th>
-            <th>
-                Category
-            </th>
-        </tr>
-    </thead>
-
-    <tbody>
-        @foreach (var item in Model.VM_Column)
-        {
-
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Id)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Column_header)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Image)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Column_type)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
-
-<div><p>&nbsp;</p></div>
+@*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>*@
 
 @Html.ActionLink("Choose Tag", "ChooseTag", "NewsColumnsViewModels")
 
-@section Scripts{
-    @Scripts.Render("~/Scripts/DataTables/jquery.dataTables.js")
-    @Scripts.Render("~/Scripts/DataTables/dataTables.bootstrap.js")
 
-    <script>
-        $(document).ready(function () {
-            $('.table').DataTable();
-            /*            $('#columns').DataTable();*/
-        });
-    </script>
+<div><p>&nbsp;</p></div>
+
+
+<h3>News</h3>
+
+@foreach (var item in Model.VM_News)
+{
+    <div class="media">
+        <div class="media-left media-top">
+            <img src="@item.Image" class="media-object" style="width:150px">
+        </div>
+        <div class="media-body">
+            <h4 class="media-heading">@Html.DisplayFor(model => item.Headline)</h4>
+            <p>@Html.DisplayFor(model => item.Content)</p>
+        </div>
+        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+    </div>
 }
-<link href="~/Content/DataTables/css/dataTables.bootstrap.min.css"
-      rel="stylesheet" />
+
+<div><p>&nbsp;</p></div>
+
+<h3>Columns</h3>
+@foreach (var item in Model.VM_Column)
+{
+    <div class="media">
+        <div class="media-left media-top">
+            <img src="@item.Image" class="media-object" style="width:150px">
+        </div>
+        <div class="media-body">
+            <h4 class="media-heading">@Html.DisplayFor(model => item.Column_header)</h4>
+            <p>@Html.DisplayFor(model => item.Column_content)</p>
+        </div>
+        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+    </div>
+}
+
