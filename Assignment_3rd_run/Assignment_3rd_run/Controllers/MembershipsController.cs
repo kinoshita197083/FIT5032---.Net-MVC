@@ -19,9 +19,9 @@ namespace Assignment_3rd_run.Controllers
         // GET: Memberships
         public ActionResult Index()
         {
-            var userId = User.Identity.GetUserId();
-            var membership = db.Memberships.SingleOrDefault(m => m.System_Id == userId);
-            return View(membership);
+            //var userId = User.Identity.GetUserId();
+            //var membership = db.Memberships.SingleOrDefault(m => m.System_Id == userId);
+            return View(db.Memberships.ToList());
         }
 
 
@@ -43,7 +43,16 @@ namespace Assignment_3rd_run.Controllers
         // GET: Memberships/Create
         public ActionResult Create()
         {
-            ViewBag.MembershipType_Id = new SelectList(db.MembershipTypesSet, "Id", "Membership_type");
+            var Id = User.Identity.GetUserId();
+            var memberOrNot = db.Memberships.SingleOrDefault(m => m.System_Id == Id);
+            if (memberOrNot == null)
+            {
+                ViewBag.MembershipType_Id = new SelectList(db.MembershipTypesSet, "Id", "Membership_type");
+            }
+            else 
+            {
+                return RedirectToAction("Index");
+            }
             return View();
         }
 

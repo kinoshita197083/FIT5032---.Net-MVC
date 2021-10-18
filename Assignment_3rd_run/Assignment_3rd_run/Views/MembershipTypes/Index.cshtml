@@ -28,16 +28,19 @@
             <td>
                 @Html.DisplayFor(modelItem => item.price)
             </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-            </td>
+            @if (User.IsInRole("Admin"))
+            {
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            }
         </tr>
     }
 
 </table>
 
 <div class="row">
-<p><a href="/Memberships/Create" class="btn btn-primary btn-lg">Register &raquo;</a></p>
+<p><a href="/Memberships/Create" class="btn btn-default">Register &raquo;</a></p>
 </div>

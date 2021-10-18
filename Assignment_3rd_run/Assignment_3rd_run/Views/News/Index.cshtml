@@ -45,7 +45,7 @@
                 @Html.DisplayFor(modelItem => item.Type)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Image)
+                <img src="@item.Image" class="media-object" style="width:150px">
             </td>
             @if (User.IsInRole("Admin")) 
             { 

@@ -16,10 +16,11 @@
 
 <div><p>&nbsp;</p></div>
 
-
+@if (Model != null)
+{
 <h3>News</h3>
 
-@foreach (var item in Model.VM_News)
+foreach (var item in Model.VM_News)
 {
     <div class="media">
         <div class="media-left media-top">
@@ -38,7 +39,7 @@
 <div><p>&nbsp;</p></div>
 
 <h3>Columns</h3>
-@foreach (var item in Model.VM_Column)
+foreach (var item in Model.VM_Column)
 {
     <div class="media">
         <div class="media-left media-top">
@@ -53,4 +54,11 @@
         @Html.ActionLink("Delete", "Delete", new { id = item.Id })
     </div>
 }
+}
+else
+{
+    <h4>Ooops...</h4>
+    <p>Seems Like You Have Not Subscribe to Anything Yet?</p>
+}
+
 

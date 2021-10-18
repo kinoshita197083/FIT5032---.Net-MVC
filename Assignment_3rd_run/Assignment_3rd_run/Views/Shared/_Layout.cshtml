@@ -23,7 +23,7 @@
                 <ul class="nav navbar-nav">
                     @if (User.Identity.IsAuthenticated)
                     {
-                    <li>@Html.ActionLink("Home", "ChooseTag", "NewsColumnsViewModels")</li>
+                    <li>@Html.ActionLink("Subscriptions", "Index", "NewsColumnsViewModels")</li>
                     }
                     <li>@Html.ActionLink("Column", "Index", "Columns")</li>
                     <li>@Html.ActionLink("News", "Index", "News")</li>

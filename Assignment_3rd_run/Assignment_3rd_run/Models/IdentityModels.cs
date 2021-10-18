@@ -41,5 +41,8 @@ namespace Assignment_3rd_run.Models
         public System.Data.Entity.DbSet<Assignment_3rd_run.ViewModels.NewsColumnsViewModel> NewsColumnsViewModels { get; set; }
 
         public System.Data.Entity.DbSet<Assignment_3rd_run.Models.Tag> TagSet { get; set; }
+        public System.Data.Entity.DbSet<Assignment_3rd_run.Models.SubNews> SubNewsSet { get; set; }
+        public System.Data.Entity.DbSet<Assignment_3rd_run.Models.SubColumns> SubColumnsSet { get; set; }
+
     }
 }

@@ -17,130 +17,135 @@ namespace Assignment_3rd_run.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: NewsColumnsViewModels
-        //public ActionResult Index()
-        //{
-        //    var userId = User.Identity.GetUserId();
-        //    var membership = db.Memberships.SingleOrDefault(m => m.System_Id == userId);
-        //    var subNews = membership.Sub_news;
-        //    var subColumns = membership.Sub_columns;
-        //    List<News> News = new List<News>();
-        //    List<Column> Columns = new List<Column>();
-        //    if (subNews != null)
-        //    {
+       // GET: NewsColumnsViewModels
+        public ActionResult Index()
+        {
+            var userId = User.Identity.GetUserId();
+            var SubNews = db.SubNewsSet.SingleOrDefault(m => m.SystemId == userId);
+            var SubColumns = db.SubColumnsSet.SingleOrDefault(m => m.SystemId == userId);
+            var returnNews = new List<News>();
+            var returnColumns = new List<Column>();
+            var returnModel = new NewsColumnsViewModel(returnNews, returnColumns, userId);
 
-        //        foreach (var item in subNews)
-        //        {
-        //            foreach (var item2 in db.NewsSet)
-        //            {
-        //                if (item2.Type == item.Type)
-        //                {
-        //                    News.Add(item2);
-        //                }
+            if (SubNews != null)
+            {
+                var temp = SubNews.SubscribedString.Split(',');
+                var temp2 = SubColumns.SubscribedString.Split(',');
+                foreach (var item in db.NewsSet)
+                {
+                    foreach (var item2 in temp)
+                        if (item.Type == item2)
+                        {
+                            returnNews.Add(item);
+                        }
+                }
 
-        //            }
-        //        }
-        //        foreach (var item in subColumns)
-        //        {
-        //            foreach (var item2 in db.ColumnSet)
-        //            {
-        //                if (item2.Column_type == item.Column_type)
-        //                {
-        //                    Columns.Add(item2);
-        //                }
+                foreach (var item in db.ColumnSet)
+                {
+                    foreach (var item2 in temp2)
+                        if (item.Column_type == item2)
+                        {
+                            returnColumns.Add(item);
+                        }
+                }
 
-        //            }
-        //        }
-        //    }
-        //    else
-        //    {
-        //        Console.WriteLine("Empty List");
-        //    }
-        //    var returnItem = new NewsColumnsViewModel(News, Columns, userId);
-        //    membership.Sub_news = News;
-        //    membership.Sub_columns = Columns;
-        //    db.NewsColumnsViewModels.Add(returnItem);
-        //    return View();
-        //}
+                returnModel = new NewsColumnsViewModel()
+                {
+                    VM_News = returnNews,
+                    VM_Column = returnColumns
+                };
+            } 
+            return View(returnModel);
+        }
 
         public ActionResult ChooseTag()
         {
-            ViewBag.Id = new SelectList(db.TagSet, "Id", "Type");
             return View("ChooseTag");
         }
 
-        //public ActionResult AddTag(List<string> news)
-        //{
-        //    var userId = User.Identity.GetUserId();
-        //    var sub = db.NewsColumnsViewModels.SingleOrDefault(m => m.System_Id == userId);
-        //    foreach (var item in news)
-        //    {
-        //        foreach (var item2 in db.NewsSet)
-        //        {
-        //            if (item == item2.Type)
-        //                sub.VM_News.Add(item2);
-        //        }
 
-        //        foreach (var item3 in db.ColumnSet)
-        //        {
-        //            if (item == item3.Column_type)
-        //                sub.VM_Column.Add(item3);
-        //        }
-        //    }
-        //    db.NewsColumnsViewModels.Add(sub);
-        //    return View("Index");
-        //}
         [HttpPost]
         public ActionResult AddTag([Bind(Include = "Id,Type")] Tag tag)
         {
             var userId = User.Identity.GetUserId();
-            var sub = db.NewsColumnsViewModels.SingleOrDefault(m => m.System_Id == userId);
-            string type = ViewBag.Type = new SelectList(db.TagSet, "Id", "Type", tag.Type).ToString();
-            //var type = tag.Type;
-            if (sub is null)
-            {
-                sub = new NewsColumnsViewModel(new List<News>(), new List<Column>(), userId);
+            var SubNews = db.SubNewsSet.SingleOrDefault(m => m.SystemId == userId);
+            var SubColumns = db.SubColumnsSet.SingleOrDefault(m => m.SystemId == userId);
+            var type = tag.Type;
 
+            var returnNews = new List<News>();
+            var returnColumns = new List<Column>();
+            var returnModel = new NewsColumnsViewModel(returnNews, returnColumns, userId);
+            if (SubNews == null)
+            {
+                SubNews = new SubNews()
+                {
+                    SystemId = userId,
+                    SubscribedString = type + ","
+                };
+                db.SubNewsSet.Add(SubNews);
+                db.SaveChanges();
+            }
+            else
+            {
+                var temp = SubNews.SubscribedString.Split(',');
+                if (!temp.Contains(type))
+                {
+                    SubNews.SubscribedString = SubNews.SubscribedString + type + ",";
+                    db.Entry(SubNews).State = EntityState.Modified;
+                    db.SaveChanges();
+                }
+            }
+
+            if (SubColumns == null)
+            {
+                SubColumns = new SubColumns()
+                {
+                    SystemId = userId,
+                    SubscribedString = type + ","
+                };
+                db.SubColumnsSet.Add(SubColumns);
+                db.SaveChanges();
+            }
+            else
+            {
+                var temp = SubColumns.SubscribedString.Split(',');
+                if (!temp.Contains(type))
+                {
+                    SubColumns.SubscribedString = SubColumns.SubscribedString + type + ",";
+                    db.Entry(SubColumns).State = EntityState.Modified;
+                    db.SaveChanges();
+                }
+            }
+
+            if (SubNews != null)
+            {
+                var temp = SubNews.SubscribedString.Split(',');
+                var temp2 = SubColumns.SubscribedString.Split(',');
                 foreach (var item in db.NewsSet)
                 {
-                    if (item.Type == type) 
-                    {
-                        sub.VM_News.Add(item);
-                    }
+                    foreach (var item2 in temp)
+                        if (item.Type == item2)
+                        {
+                            returnNews.Add(item);
+                        }
                 }
 
                 foreach (var item in db.ColumnSet)
                 {
-                    if (item.Column_type == type)
-                    {
-                        sub.VM_Column.Add(item);
-                    }
-                }
-                db.NewsColumnsViewModels.Add(sub);
-                db.SaveChanges();
-            }
-            else 
-            {
-                foreach (var item in db.NewsSet)
-                {
-                    if (item.Type == type && !sub.VM_News.Contains(item))
-                    {
-                        sub.VM_News.Add(item);
-                    }
+                    foreach (var item2 in temp2)
+                        if (item.Column_type == item2)
+                        {
+                            returnColumns.Add(item);
+                        }
                 }
 
-                foreach (var item in db.ColumnSet)
+                returnModel = new NewsColumnsViewModel()
                 {
-                    if (item.Column_type == type && !sub.VM_Column.Contains(item))
-                    {
-                        sub.VM_Column.Add(item);
-                    }
-                }
-                db.Entry(sub).State = EntityState.Modified;
-                db.SaveChanges();
+                    VM_News = returnNews,
+                    VM_Column = returnColumns
+                };
             }
-
-            return View("AddTag", sub);
+            return View("Index", returnModel); ;
         }
 
         // GET: NewsColumnsViewModels/Details/5
