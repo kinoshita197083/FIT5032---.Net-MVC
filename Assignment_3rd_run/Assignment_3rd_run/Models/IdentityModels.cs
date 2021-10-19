@@ -45,5 +45,7 @@ namespace Assignment_3rd_run.Models
         public System.Data.Entity.DbSet<Assignment_3rd_run.Models.SubColumns> SubColumnsSet { get; set; }
 
         public System.Data.Entity.DbSet<Assignment_3rd_run.Models.Event> Events { get; set; }
+
+        public System.Data.Entity.DbSet<Assignment_3rd_run.Models.Location> Locations { get; set; }
     }
 }

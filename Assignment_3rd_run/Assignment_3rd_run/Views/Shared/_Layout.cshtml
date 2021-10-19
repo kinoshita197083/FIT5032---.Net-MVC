@@ -9,6 +9,13 @@
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/bootstrap")
 
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.css' rel='stylesheet' />
+    <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.min.js'></script>
+    <link rel='stylesheet'
+          href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.css'
+          type='text/css' />
+
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -30,7 +37,8 @@
                     <li>@Html.ActionLink("Column", "Index", "Columns")</li>
                     <li>@Html.ActionLink("News", "Index", "News")</li>
                     <li>@Html.ActionLink("Membership", "Index", "MembershipTypes")</li>
-                    <li>@Html.ActionLink("Get in touch", "Index", "Events")</li>
+                    <li>@Html.ActionLink("Visiting Us", "Index", "Events")</li>
+                    <li>@Html.ActionLink("Our Branch", "Index", "Locations")</li>
                     <li>@Html.ActionLink("Email", "EmailForm", "Home")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
