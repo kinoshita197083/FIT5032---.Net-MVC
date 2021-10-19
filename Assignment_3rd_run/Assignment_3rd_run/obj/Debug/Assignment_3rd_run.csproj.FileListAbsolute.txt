@@ -145,3 +145,4 @@ C:\Users\Administrator\Documents\GitHub\FIT5032\Assignment_3rd_run\Assignment_3r
 C:\Users\Administrator\Documents\GitHub\FIT5032\Assignment_3rd_run\Assignment_3rd_run\obj\Debug\Assignment_3rd_run.Migrations.SubClassesImplemented.resources
 C:\Users\Administrator\Documents\GitHub\FIT5032\Assignment_3rd_run\Assignment_3rd_run\obj\Debug\Assignment_3rd_run.Migrations.UpdatedSubClasses.resources
 C:\Users\Administrator\Documents\GitHub\FIT5032\Assignment_3rd_run\Assignment_3rd_run\obj\Debug\Assignment_3rd_run.Migrations.NewAttributeForSubClasses.resources
+C:\Users\Administrator\Documents\GitHub\FIT5032\Assignment_3rd_run\Assignment_3rd_run\obj\Debug\Assignment_3rd_run.Migrations.EventClass.resources

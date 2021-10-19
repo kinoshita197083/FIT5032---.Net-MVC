@@ -12,6 +12,13 @@ namespace Assignment_3rd_run
                         "~/Scripts/jquery-{version}.js"
 /*                        "~/Scripts/DataTables/jquery.dataTables.js"*/));
 
+            bundles.Add(new StyleBundle("~/bundles/fullcalendar").Include(
+                "~/Scripts/jquery.min.js",
+                "~/Scripts/moment.min.js",
+                "~/Scripts/fullcalendar/fullcalendar.js",
+                "~/Scripts/calendar.js"));
+
+
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
 
@@ -26,6 +33,7 @@ namespace Assignment_3rd_run
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                      "~/Content/fullcalendar.css",
                       "~/Content/site.css"
 /*                      "~/Content/DataTables/css/dataTables.bootstrap.css"*/));
         }
