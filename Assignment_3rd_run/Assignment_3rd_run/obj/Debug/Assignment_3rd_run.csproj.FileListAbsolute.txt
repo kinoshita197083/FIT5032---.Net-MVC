@@ -116,7 +116,6 @@ C:\Users\Administrator\Documents\GitHub\FIT5032\Assignment_3rd_run\Assignment_3r
 C:\Users\Administrator\Documents\GitHub\FIT5032\Assignment_3rd_run\Assignment_3rd_run\obj\Debug\Assignment_3rd_run.Migrations.ViewModel.resources
 C:\Users\Administrator\Documents\GitHub\FIT5032\Assignment_3rd_run\Assignment_3rd_run\obj\Debug\Assignment_3rd_run.Migrations.Uncommented.resources
 C:\Users\Administrator\Documents\GitHub\FIT5032\Assignment_3rd_run\Assignment_3rd_run\obj\Debug\Assignment_3rd_run.Migrations.regularUpdate.resources
-C:\Users\Administrator\Documents\GitHub\FIT5032\Assignment_3rd_run\Assignment_3rd_run\obj\Debug\Assignment_3rd_run.csproj.AssemblyReference.cache
 C:\Users\Administrator\Documents\GitHub\FIT5032\Assignment_3rd_run\Assignment_3rd_run\obj\Debug\Assignment_3rd_run.Migrations.AddMembershipType.resources
 C:\Users\Administrator\Documents\GitHub\FIT5032\Assignment_3rd_run\Assignment_3rd_run\obj\Debug\Assignment_3rd_run.Migrations.dbSetUpdated.resources
 C:\Users\Administrator\Documents\GitHub\FIT5032\Assignment_3rd_run\Assignment_3rd_run\obj\Debug\Assignment_3rd_run.Migrations.modifiedMembershipClass.resources
@@ -148,3 +147,5 @@ C:\Users\Administrator\Documents\GitHub\FIT5032\Assignment_3rd_run\Assignment_3r
 C:\Users\Administrator\Documents\GitHub\FIT5032\Assignment_3rd_run\Assignment_3rd_run\obj\Debug\Assignment_3rd_run.Migrations.EventClass.resources
 C:\Users\Administrator\Documents\GitHub\FIT5032\Assignment_3rd_run\Assignment_3rd_run\obj\Debug\Assignment_3rd_run.Migrations.LocationClassAdded.resources
 C:\Users\Administrator\Documents\GitHub\FIT5032\Assignment_3rd_run\Assignment_3rd_run\obj\Debug\Assignment_3rd_run.Migrations.LocationDataSeed.resources
+C:\Users\Administrator\Documents\GitHub\FIT5032\Assignment_3rd_run\Assignment_3rd_run\obj\Debug\Assignment_3rd_run.Migrations.debugAttempted.resources
+C:\Users\Administrator\Documents\GitHub\FIT5032\Assignment_3rd_run\Assignment_3rd_run\obj\Debug\Assignment_3rd_run.csproj.AssemblyReference.cache

@@ -308,6 +308,10 @@
     <Compile Include="Migrations\202110190731324_LocationDataSeed.Designer.cs">
       <DependentUpon>202110190731324_LocationDataSeed.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202110191129473_debugAttempted.cs" />
+    <Compile Include="Migrations\202110191129473_debugAttempted.Designer.cs">
+      <DependentUpon>202110191129473_debugAttempted.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Column.cs" />
@@ -902,6 +906,7 @@
     <Content Include="Views\Locations\Details.cshtml" />
     <Content Include="Views\Locations\Edit.cshtml" />
     <Content Include="Views\Locations\Index.cshtml" />
+    <Content Include="Views\NewsColumnsViewModels\MembershipAlert.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -986,6 +991,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202110190731324_LocationDataSeed.resx">
       <DependentUpon>202110190731324_LocationDataSeed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110191129473_debugAttempted.resx">
+      <DependentUpon>202110191129473_debugAttempted.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -12,7 +12,7 @@ namespace Assignment_3rd_run
                         "~/Scripts/jquery-{version}.js"
 /*                        "~/Scripts/DataTables/jquery.dataTables.js"*/));
 
-            bundles.Add(new StyleBundle("~/bundles/fullcalendar").Include(
+            bundles.Add(new ScriptBundle("~/bundles/fullcalendar").Include(
                 "~/Scripts/jquery.min.js",
                 "~/Scripts/moment.min.js",
                 "~/Scripts/fullcalendar/fullcalendar.js",

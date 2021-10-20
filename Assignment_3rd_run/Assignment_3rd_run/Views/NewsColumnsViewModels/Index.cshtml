@@ -14,17 +14,20 @@
 
 @foreach (var item in Model.VM_News)
 {
-    <div class="media">
-        <div class="media-left media-top">
-            <img src="@item.Image" class="media-object" style="width:150px">
-        </div>
-        <div class="media-body">
-            <h4 class="media-heading">@Html.DisplayFor(model => item.Headline)</h4>
-            <p>@Html.DisplayFor(model => item.Content)</p>
-        </div>
-        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+<div class="media">
+    <div class="media-left media-top">
+        <img src="@item.Image" class="media-object" style="width:150px">
+    </div>
+    <div class="media-body">
+        <h4 class="media-heading">@Html.DisplayFor(model => item.Headline)</h4>
+        <p>@Html.DisplayFor(model => item.Content)</p>
+    </div>
+        @Html.ActionLink("Details", "Details", new { id = item.Id }) 
+        @if (User.IsInRole("Admin"))
+        {
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+        }
     </div>
 }
 
@@ -41,10 +44,13 @@
             <h4 class="media-heading">@Html.DisplayFor(model => item.Column_header)</h4>
             <p>@Html.DisplayFor(model => item.Column_content)</p>
         </div>
-        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-    </div>
+        @Html.ActionLink("Details", "Details", new { id = item.Id }) 
+        @if (User.IsInRole("Admin"))
+        {
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+        }
+        </div>
 }
 
 <div><p>&nbsp;</p></div>

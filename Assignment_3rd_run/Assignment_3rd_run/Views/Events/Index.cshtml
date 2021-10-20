@@ -5,14 +5,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Appointment</h2>
 
 <div id="calendar"></div>
 <div style="display: none">
 
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
+
     <table class="table">
         <tr>
             <th>
@@ -31,6 +29,7 @@
                     @Html.DisplayFor(modelItem => item.Title)
                 </td>
                 <td class="start">
+                <td>
                     @Html.DisplayFor(modelItem => item.Start)
                 </td>
                 <td>

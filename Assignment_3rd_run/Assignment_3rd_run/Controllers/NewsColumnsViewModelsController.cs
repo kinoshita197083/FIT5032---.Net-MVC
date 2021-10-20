@@ -27,6 +27,13 @@ namespace Assignment_3rd_run.Controllers
             var returnColumns = new List<Column>();
             var returnModel = new NewsColumnsViewModel(returnNews, returnColumns, userId);
 
+            var memberOrNot = db.Memberships.SingleOrDefault(m => m.System_Id == userId);
+
+            if (memberOrNot == null)
+            {
+                return View("MembershipAlert");
+            }
+
             if (SubNews != null)
             {
                 var temp = SubNews.SubscribedString.Split(',');
