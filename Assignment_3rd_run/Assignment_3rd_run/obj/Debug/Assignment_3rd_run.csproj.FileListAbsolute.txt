@@ -148,4 +148,4 @@ C:\Users\Administrator\Documents\GitHub\FIT5032\Assignment_3rd_run\Assignment_3r
 C:\Users\Administrator\Documents\GitHub\FIT5032\Assignment_3rd_run\Assignment_3rd_run\obj\Debug\Assignment_3rd_run.Migrations.LocationClassAdded.resources
 C:\Users\Administrator\Documents\GitHub\FIT5032\Assignment_3rd_run\Assignment_3rd_run\obj\Debug\Assignment_3rd_run.Migrations.LocationDataSeed.resources
 C:\Users\Administrator\Documents\GitHub\FIT5032\Assignment_3rd_run\Assignment_3rd_run\obj\Debug\Assignment_3rd_run.Migrations.debugAttempted.resources
-C:\Users\Administrator\Documents\GitHub\FIT5032\Assignment_3rd_run\Assignment_3rd_run\obj\Debug\Assignment_3rd_run.csproj.AssemblyReference.cache
+C:\Users\Administrator\Documents\GitHub\FIT5032\Assignment_3rd_run\Assignment_3rd_run\obj\Debug\Assignment_3rd_run.Migrations.NewEmailModel.resources

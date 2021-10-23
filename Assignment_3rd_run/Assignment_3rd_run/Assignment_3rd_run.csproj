@@ -197,6 +197,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ColumnsController.cs" />
+    <Compile Include="Controllers\EmailsController.cs" />
     <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LocationsController.cs" />
@@ -312,9 +313,14 @@
     <Compile Include="Migrations\202110191129473_debugAttempted.Designer.cs">
       <DependentUpon>202110191129473_debugAttempted.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202110230356449_NewEmailModel.cs" />
+    <Compile Include="Migrations\202110230356449_NewEmailModel.Designer.cs">
+      <DependentUpon>202110230356449_NewEmailModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Column.cs" />
+    <Compile Include="Models\Email.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Location.cs" />
@@ -506,6 +512,7 @@
     <Content Include="Content\fullcalendar.min.css" />
     <Content Include="Content\fullcalendar.print.css" />
     <Content Include="Content\fullcalendar.print.min.css" />
+    <Content Include="Content\fullcalendar2.css" />
     <Content Include="Content\Images\apple1.jfif" />
     <Content Include="Content\Images\apple2.jfif" />
     <Content Include="Content\Images\biden.jpg" />
@@ -542,6 +549,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\calendar.js" />
+    <Content Include="Scripts\calendar2.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.min.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap4.js" />
@@ -644,6 +652,7 @@
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\fullcalendar\fullcalendar.js" />
     <Content Include="Scripts\fullcalendar\fullcalendar.min.js" />
+    <Content Include="Scripts\fullcalendar\fullcalendar2.js" />
     <Content Include="Scripts\fullcalendar\gcal.js" />
     <Content Include="Scripts\fullcalendar\gcal.min.js" />
     <Content Include="Scripts\fullcalendar\locale-all.js" />
@@ -656,7 +665,6 @@
     <Content Include="Scripts\fullcalendar\locale\ar-tn.js" />
     <Content Include="Scripts\fullcalendar\locale\ar.js" />
     <Content Include="Scripts\fullcalendar\locale\bg.js" />
-    <Content Include="Scripts\fullcalendar\locale\bs.js" />
     <Content Include="Scripts\fullcalendar\locale\ca.js" />
     <Content Include="Scripts\fullcalendar\locale\cs.js" />
     <Content Include="Scripts\fullcalendar\locale\da.js" />
@@ -670,7 +678,6 @@
     <Content Include="Scripts\fullcalendar\locale\en-ie.js" />
     <Content Include="Scripts\fullcalendar\locale\en-nz.js" />
     <Content Include="Scripts\fullcalendar\locale\es-do.js" />
-    <Content Include="Scripts\fullcalendar\locale\es-us.js" />
     <Content Include="Scripts\fullcalendar\locale\es.js" />
     <Content Include="Scripts\fullcalendar\locale\et.js" />
     <Content Include="Scripts\fullcalendar\locale\eu.js" />
@@ -688,7 +695,6 @@
     <Content Include="Scripts\fullcalendar\locale\is.js" />
     <Content Include="Scripts\fullcalendar\locale\it.js" />
     <Content Include="Scripts\fullcalendar\locale\ja.js" />
-    <Content Include="Scripts\fullcalendar\locale\ka.js" />
     <Content Include="Scripts\fullcalendar\locale\kk.js" />
     <Content Include="Scripts\fullcalendar\locale\ko.js" />
     <Content Include="Scripts\fullcalendar\locale\lb.js" />
@@ -708,7 +714,6 @@
     <Content Include="Scripts\fullcalendar\locale\ru.js" />
     <Content Include="Scripts\fullcalendar\locale\sk.js" />
     <Content Include="Scripts\fullcalendar\locale\sl.js" />
-    <Content Include="Scripts\fullcalendar\locale\sq.js" />
     <Content Include="Scripts\fullcalendar\locale\sr-cyrl.js" />
     <Content Include="Scripts\fullcalendar\locale\sr.js" />
     <Content Include="Scripts\fullcalendar\locale\sv.js" />
@@ -719,6 +724,7 @@
     <Content Include="Scripts\fullcalendar\locale\zh-cn.js" />
     <Content Include="Scripts\fullcalendar\locale\zh-tw.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\2jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
@@ -815,6 +821,7 @@
     <Content Include="Scripts\moment-with-locales.min.js" />
     <Content Include="Scripts\moment.js" />
     <Content Include="Scripts\moment.min.js" />
+    <Content Include="Scripts\moment2.min.js" />
     <Content Include="Scripts\popper-utils.js" />
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
@@ -907,6 +914,7 @@
     <Content Include="Views\Locations\Edit.cshtml" />
     <Content Include="Views\Locations\Index.cshtml" />
     <Content Include="Views\NewsColumnsViewModels\MembershipAlert.cshtml" />
+    <Content Include="Views\Emails\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -994,6 +1002,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202110191129473_debugAttempted.resx">
       <DependentUpon>202110191129473_debugAttempted.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110230356449_NewEmailModel.resx">
+      <DependentUpon>202110230356449_NewEmailModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

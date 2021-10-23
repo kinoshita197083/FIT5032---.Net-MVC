@@ -1,0 +1,62 @@
+﻿@model Assignment_3rd_run.Models.Email
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/Scripts/jquery-1.7.1.min.js"></script>
+<script>
+
+    $(document).ready(function () {
+        if ('@ViewBag.Message' == 'Sent') {
+            alert('Mail has been sent successfully');
+        }
+    });
+</script>
+<h2>Email</h2>
+<fieldset>
+    <legend>
+        Send Email
+    </legend>
+    @using (@Html.BeginForm("Index", "Emails", FormMethod.Post, new { @id = "form1", @enctype = "multipart/form-data" }))
+    {
+        @Html.ValidationSummary()
+        <table>
+            <tr>
+                <td>
+                    To:
+                </td>
+                <td>
+                    @Html.TextBoxFor(m => m.To)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Subject:
+                </td>
+                <td>
+                    @Html.TextBoxFor(m => m.Subject)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Attachment
+                </td>
+                <td>
+                    <input type="file" name="fileUploader" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Body:
+                </td>
+                <td>
+                    @Html.TextAreaFor(m => m.Body)
+                </td>
+            </tr>
+        </table>
+        <div><p>&nbsp;</p></div>
+        <input type="submit" value="Send" />
+    }
+</fieldset>
+
