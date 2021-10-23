@@ -9,7 +9,7 @@ namespace Assignment_3rd_run.Models
     public class Event
     {
         public int Id { get; set; }
-        [Display(Name = "Visiting Purpose")]
+        [Display(Name = "Branch")]
         [Required]
         public string Title { get; set; }
         public DateTime Start { get; set; }

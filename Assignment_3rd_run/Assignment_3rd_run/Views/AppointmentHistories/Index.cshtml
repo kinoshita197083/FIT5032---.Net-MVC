@@ -1,0 +1,41 @@
+﻿@model Assignment_3rd_run.ViewModels.RatingViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Branch's Rating Overview</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.store1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.store2)
+        </th>
+    </tr>
+
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => Model.rating1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => Model.rating2)
+        </td>
+    </tr>
+
+
+</table>
+
+<div class="row">
+    <p><a href="/Events/Index" class="btn btn-default">To Appointment Page &raquo;</a></p>
+</div>
+
+<div class="row">
+    <p><a href="/AppointmentHistories/MyAppointments" class="btn btn-default">View Appointment History &raquo;</a></p>
+</div>

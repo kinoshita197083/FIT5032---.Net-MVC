@@ -12,11 +12,12 @@ $(".events").each(function () {
 $("#calendar").fullCalendar({
     locale: 'au',
     events: events,
-    dayClick: function(date, allDay, jsEvent, view) {
-    var d = new Date(date);
-    var m = moment(d).format("YYYY-MM-DD");
-    m = encodeURIComponent(m);
-    var uri = "/Events/Create?date=" + m;
-    $(location).attr('href', uri);
-}
+    dayClick: function (date, allDay, jsEvent, view)
+    {
+        var d = new Date(date);
+        var m = moment(d).format("YYYY-MM-DD");
+        m = encodeURIComponent(m);
+        var uri = "/Events/Create?date=" + m;
+        $(location).attr('href', uri);
+    }
 });

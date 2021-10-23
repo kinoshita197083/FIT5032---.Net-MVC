@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Assignment_3rd_run.Models.AppointmentHistory>
+
+@{
+    ViewBag.Title = "MyAppointments";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>My Appointments</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TheEvent.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TheEvent.Start)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Feedback)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TheEvent.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TheEvent.Start)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Feedback)
+        </td>
+    </tr>
+}
+
+</table>
+
+<div class="row">
+    <p><a href="/AppointmentHistories/RateAppointment" class="btn btn-default">Rate My Appointment &raquo;</a></p>
+</div>
