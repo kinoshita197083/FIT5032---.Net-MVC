@@ -33,13 +33,16 @@
                     @if (User.Identity.IsAuthenticated)
                     {
                         <li>@Html.ActionLink("Subscriptions", "Index", "NewsColumnsViewModels")</li>
+                        <li>@Html.ActionLink("Visiting Us", "Index", "AppointmentHistories")</li>
                     }
                     <li>@Html.ActionLink("Column", "Index", "Columns")</li>
                     <li>@Html.ActionLink("News", "Index", "News")</li>
                     <li>@Html.ActionLink("Membership", "Index", "MembershipTypes")</li>
-                    <li>@Html.ActionLink("Visiting Us", "Index", "AppointmentHistories")</li>
                     <li>@Html.ActionLink("Our Branch", "Index", "Locations")</li>
-                    <li>@Html.ActionLink("Email", "Index", "Emails")</li>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li>@Html.ActionLink("Email", "Index", "Emails")</li>
+                    }
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

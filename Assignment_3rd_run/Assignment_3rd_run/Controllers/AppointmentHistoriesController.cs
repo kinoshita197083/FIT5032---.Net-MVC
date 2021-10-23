@@ -21,17 +21,29 @@ namespace Assignment_3rd_run.Controllers
         {
             var returnList1 = new List<int>();
             var returnList2 = new List<int>();
-            string branch1 = "Clayton";
-            string branch2 = "Caulfield";
+            string branch1 = "Clayton Branch";
+            string branch2 = "Caulfield Branch";
             int average1 = 0;
             int average2 = 0;
             var appointmentList = db.AppointmentHistories.ToList();
+            var eventList = db.Events.Where(m => m.Title == "Clayton").ToList();
+            var eventList2 = db.Events.Where(m => m.Title == "Caulfield").ToList();
+            //var myList = new List<AppointmentHistory>();
+            //var userId = User.Identity.GetUserId();
+
             foreach (var item in appointmentList)
             {
-                if (item.TheEvent.Title == branch1)
-                    returnList1.Add(item.Feedback);
-                if (item.TheEvent.Title == branch2)
-                    returnList2.Add(item.Feedback);
+                foreach (var item2 in eventList)
+                {
+                    if (item.EventId == item2.Id.ToString())
+                        returnList1.Add(item.Feedback);
+                }
+
+                foreach (var item2 in eventList2)
+                {
+                    if (item.EventId == item2.Id.ToString())
+                        returnList2.Add(item.Feedback);
+                }
             }
 
             foreach (var item in returnList1)
@@ -72,6 +84,7 @@ namespace Assignment_3rd_run.Controllers
         [HttpPost]
         public ActionResult RateAppointment([Bind(Include = "Id,EventId,Feedback")] AppointmentHistory returnModel)
         {
+            returnModel.SystemId = User.Identity.GetUserId();
             db.AppointmentHistories.Add(returnModel);
             db.SaveChanges();
             return View("Index");
