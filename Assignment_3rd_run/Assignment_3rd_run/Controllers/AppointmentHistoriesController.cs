@@ -16,39 +16,37 @@ namespace Assignment_3rd_run.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: AppointmentHistories
+        // GET: View Model for rendering
         public ActionResult Index()
         {
             var returnList1 = new List<int>();
             var returnList2 = new List<int>();
-            string branch1 = "Clayton Branch";
+            string branch1 = "Clayton Branch"; // Fixed branch 1
             string branch2 = "Caulfield Branch";
             int average1 = 0;
             int average2 = 0;
-            var appointmentList = db.AppointmentHistories.ToList();
-            var eventList = db.Events.Where(m => m.Title == "Clayton").ToList();
-            var eventList2 = db.Events.Where(m => m.Title == "Caulfield").ToList();
-            //var myList = new List<AppointmentHistory>();
-            //var userId = User.Identity.GetUserId();
+            var appointmentList = db.AppointmentHistories.ToList(); // retrieve all the appointment histories from DB
+            var eventList = db.Events.Where(m => m.Title == "Clayton").ToList(); // Filter those with event relate to Clayton
+            var eventList2 = db.Events.Where(m => m.Title == "Caulfield").ToList(); // Filter those relate to Caulfield 
 
             foreach (var item in appointmentList)
             {
                 foreach (var item2 in eventList)
                 {
-                    if (item.EventId == item2.Id.ToString())
+                    if (item.EventId == item2.Id.ToString()) // Match the event ID in appointment history to Actual Event in Event list
                         returnList1.Add(item.Feedback);
                 }
 
                 foreach (var item2 in eventList2)
                 {
-                    if (item.EventId == item2.Id.ToString())
+                    if (item.EventId == item2.Id.ToString()) // Match the event ID in appointment history to Actual Event in Event list
                         returnList2.Add(item.Feedback);
                 }
             }
 
             int count1 = 0;
             int count2 = 0;
-            foreach (var item in returnList1)
+            foreach (var item in returnList1) // Calculate the average rating score for Clayton
             {
                 count1 += 1;
                 average1 = average1 + item;
@@ -56,7 +54,7 @@ namespace Assignment_3rd_run.Controllers
 
             average1 = average1 / count1;
 
-            foreach (var item in returnList2)
+            foreach (var item in returnList2) // Calculate the average rating score for Caulfield
             {
                 count2 += 1;
                 average2 = average2 + item;
@@ -64,7 +62,7 @@ namespace Assignment_3rd_run.Controllers
 
             average2 = average2 / count2;
 
-            var returnModel = new RatingViewModel()
+            var returnModel = new RatingViewModel() // Construct the View Model and pass to the View
             {
                 rating1 = average1,
                 rating2 = average2,
@@ -74,11 +72,12 @@ namespace Assignment_3rd_run.Controllers
             return View(returnModel);
         }
 
+        //Get: Check own appointments
         public ActionResult MyAppointments()
         {
-            var allHistories = db.AppointmentHistories.ToList();
+            var allHistories = db.AppointmentHistories.ToList(); // retrieve all appointments
             var myHistories = new List<AppointmentHistory>();
-            var userId = User.Identity.GetUserId();
+            var userId = User.Identity.GetUserId(); // Get own user Id recorded by the system
 
             foreach (var item in allHistories)
             {

@@ -326,6 +326,10 @@
     <Compile Include="Migrations\202110231423038_ModifiedRaingViewModel.Designer.cs">
       <DependentUpon>202110231423038_ModifiedRaingViewModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202110240851378_modifiedApptHistoryClass.cs" />
+    <Compile Include="Migrations\202110240851378_modifiedApptHistoryClass.Designer.cs">
+      <DependentUpon>202110240851378_modifiedApptHistoryClass.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AppointmentHistory.cs" />
@@ -934,6 +938,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202110231423038_ModifiedRaingViewModel.resx">
       <DependentUpon>202110231423038_ModifiedRaingViewModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110240851378_modifiedApptHistoryClass.resx">
+      <DependentUpon>202110240851378_modifiedApptHistoryClass.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

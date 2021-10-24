@@ -17,30 +17,30 @@ namespace Assignment_3rd_run.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-       // GET: NewsColumnsViewModels
+       // GET: View Model for rendering purpose
         public ActionResult Index()
         {
-            var userId = User.Identity.GetUserId();
-            var SubNews = db.SubNewsSet.SingleOrDefault(m => m.SystemId == userId);
-            var SubColumns = db.SubColumnsSet.SingleOrDefault(m => m.SystemId == userId);
+            var userId = User.Identity.GetUserId(); // get self user ID
+            var SubNews = db.SubNewsSet.SingleOrDefault(m => m.SystemId == userId); // retrieve own from the DB
+            var SubColumns = db.SubColumnsSet.SingleOrDefault(m => m.SystemId == userId); // retrieve own from the DB
             var returnNews = new List<News>();
             var returnColumns = new List<Column>();
-            var returnModel = new NewsColumnsViewModel(returnNews, returnColumns, userId);
+            var returnModel = new NewsColumnsViewModel(returnNews, returnColumns, userId); // final model to View
 
-            var memberOrNot = db.Memberships.SingleOrDefault(m => m.System_Id == userId);
+            var memberOrNot = db.Memberships.SingleOrDefault(m => m.System_Id == userId); // First, Check user is member or not
 
             if (memberOrNot == null)
             {
-                return View("MembershipAlert");
+                return View("MembershipAlert"); // if not, registeration form
             }
 
-            if (SubNews != null)
+            if (SubNews != null) // If the user have subscriptions already
             {
-                var temp = SubNews.SubscribedString.Split(',');
-                var temp2 = SubColumns.SubscribedString.Split(',');
+                var temp = SubNews.SubscribedString.Split(','); // retrieve the subscribed type for News
+                var temp2 = SubColumns.SubscribedString.Split(','); // same as above but for Columns
                 foreach (var item in db.NewsSet)
                 {
-                    foreach (var item2 in temp)
+                    foreach (var item2 in temp) // Search the database and retrieve every News from DB that has the same tag
                         if (item.Type == item2)
                         {
                             returnNews.Add(item);
@@ -49,7 +49,7 @@ namespace Assignment_3rd_run.Controllers
 
                 foreach (var item in db.ColumnSet)
                 {
-                    foreach (var item2 in temp2)
+                    foreach (var item2 in temp2) // Same as News above
                         if (item.Column_type == item2)
                         {
                             returnColumns.Add(item);
@@ -71,6 +71,7 @@ namespace Assignment_3rd_run.Controllers
         }
 
 
+        // POST: Subscribe to a tag or type
         [HttpPost]
         public ActionResult AddTag([Bind(Include = "Id,Type")] Tag tag)
         {
@@ -84,7 +85,7 @@ namespace Assignment_3rd_run.Controllers
             var returnModel = new NewsColumnsViewModel(returnNews, returnColumns, userId);
             if (SubNews == null)
             {
-                SubNews = new SubNews()
+                SubNews = new SubNews() // Store the new tag in string
                 {
                     SystemId = userId,
                     SubscribedString = type + ","
@@ -105,7 +106,7 @@ namespace Assignment_3rd_run.Controllers
 
             if (SubColumns == null)
             {
-                SubColumns = new SubColumns()
+                SubColumns = new SubColumns() // Same story as News
                 {
                     SystemId = userId,
                     SubscribedString = type + ","

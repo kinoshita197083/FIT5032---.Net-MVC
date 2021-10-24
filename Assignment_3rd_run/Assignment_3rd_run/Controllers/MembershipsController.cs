@@ -44,8 +44,8 @@ namespace Assignment_3rd_run.Controllers
         public ActionResult Create()
         {
             var Id = User.Identity.GetUserId();
-            var memberOrNot = db.Memberships.SingleOrDefault(m => m.System_Id == Id);
-            if (memberOrNot == null)
+            var memberOrNot = db.Memberships.SingleOrDefault(m => m.System_Id == Id); //Retrieve self-related one
+            if (memberOrNot == null) // if there's no record, initialise one
             {
                 ViewBag.MembershipType_Id = new SelectList(db.MembershipTypesSet, "Id", "Membership_type");
             }

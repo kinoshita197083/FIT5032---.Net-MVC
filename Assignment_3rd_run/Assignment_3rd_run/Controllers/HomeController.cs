@@ -37,6 +37,7 @@ namespace Assignment_3rd_run.Controllers
             return View("Send");
         }
 
+        // Send email feature (forbidden)
         public ActionResult Send(MailInfo model)
         {
             var formAddress = new MailAddress("Clementine197083@gmail.com");

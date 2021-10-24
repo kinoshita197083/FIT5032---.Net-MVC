@@ -36,11 +36,10 @@ namespace Assignment_3rd_run.Controllers
                     SmtpClient smtp = new SmtpClient();
                     smtp.Host = "smtp.gmail.com";
                     smtp.EnableSsl = true;
-                    //NetworkCredential networkCredential = new NetworkCredential(from, "Oscar7808");
                     NetworkCredential networkCredential = new NetworkCredential("clementine197083@gmail.com", "Oscar7808");
                     smtp.UseDefaultCredentials = false;
                     smtp.Credentials = networkCredential;
-                    smtp.Port = 587;
+                    smtp.Port = 587; //25 or 650; Gmail should be 587
                     smtp.Send(mail);
                     ViewBag.Message = "Sent";
                     return View("Index", objModelMail);
