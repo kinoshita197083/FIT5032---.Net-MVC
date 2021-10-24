@@ -5,11 +5,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Branch's Rating Overview</h2>
+<h2>How Our Visitors Rated Us</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
 <table class="table">
     <tr>
         <th>
@@ -22,20 +20,26 @@
 
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => Model.rating1)
+            @Html.DisplayFor(modelItem => Model.rating1) / 100
         </td>
         <td>
-            @Html.DisplayFor(modelItem => Model.rating2)
+            @Html.DisplayFor(modelItem => Model.rating2) / 100
         </td>
     </tr>
 
 
 </table>
 
-<div class="row">
-    <p><a href="/Events/Index" class="btn btn-default">To Appointment Page &raquo;</a></p>
-</div>
+<div><p>&nbsp;</p></div>
+<div><p>&nbsp;</p></div>
 
 <div class="row">
+    <p></p>
+    <p><a href="/Events/Index" class="btn btn-default">New Appointment &raquo;</a></p>
+</div>
+
+
+<div class="row">
+    <p></p>
     <p><a href="/AppointmentHistories/MyAppointments" class="btn btn-default">View Appointment History &raquo;</a></p>
 </div>

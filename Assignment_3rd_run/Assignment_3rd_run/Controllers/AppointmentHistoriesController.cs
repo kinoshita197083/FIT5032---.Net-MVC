@@ -46,11 +46,23 @@ namespace Assignment_3rd_run.Controllers
                 }
             }
 
+            int count1 = 0;
+            int count2 = 0;
             foreach (var item in returnList1)
+            {
+                count1 += 1;
                 average1 = average1 + item;
+            }
+
+            average1 = average1 / count1;
 
             foreach (var item in returnList2)
+            {
+                count2 += 1;
                 average2 = average2 + item;
+            }
+
+            average2 = average2 / count2;
 
             var returnModel = new RatingViewModel()
             {
@@ -71,7 +83,11 @@ namespace Assignment_3rd_run.Controllers
             foreach (var item in allHistories)
             {
                 if (item.SystemId == userId)
+                {
+                    var temp = item.EventId;
+                    item.TheEvent = db.Events.SingleOrDefault(m => m.Id.ToString() == temp);
                     myHistories.Add(item);
+                }
             }
             return View(myHistories);
         }
